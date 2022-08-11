@@ -1,6 +1,6 @@
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import "./Home.css";
 
 const Home = () => {
@@ -12,6 +12,7 @@ const Home = () => {
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
+    console.log(auth);
   }, []);
 
   const handleDelete = async (id) => {
@@ -32,7 +33,9 @@ const Home = () => {
             </div>
             <div className="nameAndDeleteButton">
               <h3>@{post.author.username}</h3>
-              <button onClick={ () => handleDelete(post.id) }>削除</button>
+              {auth.currentUser && post.author.id === auth.currentUser.uid && (
+                <button onClick={ () => handleDelete(post.id) }>削除</button>
+              )}
             </div>
           </div>
         );
