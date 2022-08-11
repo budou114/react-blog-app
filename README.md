@@ -6,6 +6,9 @@
 - 参考リンク  
   https://www.udemy.com/course/react-trello-development/
 
+## Vercel NowにデプロイしたURL  
+  https://react-blog-app-amber.vercel.app/
+
 ## インストール履歴
 - VSCodeに入れたもの  
   - ES7+ React/Redux/React-Native snippets  
