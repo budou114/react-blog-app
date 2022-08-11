@@ -12,7 +12,6 @@ const Home = () => {
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
-    console.log(auth);
   }, []);
 
   const handleDelete = async (id) => {
